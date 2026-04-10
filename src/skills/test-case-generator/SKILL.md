@@ -448,40 +448,12 @@ AC3: 支付失败显示错误提示
 - [ ] 测试步骤清晰可执行
 - [ ] 预期结果可验证
 
-### 可维护性检查
-- [ ] 测试用例独立
-- [ ] 测试数据与步骤分离
-- [ ] 命名规范统一
-- [ ] 无冗余重复
-
-### 覆盖率检查
-- [ ] 功能覆盖率 100%
-- [ ] 边界条件覆盖
-- [ ] 异常场景覆盖
-
 ---
 
 ## 与上下游 Skill 的接口
 
-### 上游输入（来自 test-story-parser）
-```json
-{
-  "user_story": {"role": "...", "goal": "...", "benefit": "..."},
-  "acceptance_criteria": ["AC1", "AC2", ...],
-  "confidence": 100
-}
-```
-
-### 下游输出（供 test-execute 使用）
-```json
-{
-  "test_cases": [
-    {"id": "TC-001", "name": "...", "priority": "P0", "steps": [...]}
-  ],
-  "test_data": [...],
-  "coverage": {"ac_count": 4, "tc_count": 10, "coverage_rate": "100%"}
-}
-```
+**上游**: test-story-parser → User Story + AC  
+**下游**: test-execute → 测试用例 + 测试数据
 
 ---
 
@@ -493,8 +465,7 @@ AC3: 支付失败显示错误提示
 - [ ] 测试步骤清晰可执行
 - [ ] 预期结果可验证
 - [ ] 识别了测试数据需求
-- [ ] 优先级排序合理
 
 ---
 
-*版本：1.0 | 基于 ISTQB 测试设计标准 | 位置：~/.openclaw/workspace-skilldev/Agent-Testing-Skill-Suit/src/skills/test-case-generator/*
+*版本：1.0 | 基于 ISTQB 测试设计标准*
