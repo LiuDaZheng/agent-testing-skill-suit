@@ -4,8 +4,8 @@ description: STLC 测试设计阶段 - 设计测试用例、测试数据、测�
 metadata:
   openclaw:
     requires:
-      bins: [ wc ]
-    os: [  darwin,   linux  ]
+      bins: [wc]
+    os: [darwin, linux]
 ---
 
 # STLC 测试设计 Skill
