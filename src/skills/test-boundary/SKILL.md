@@ -49,7 +49,7 @@ BVA 通过测试以下值来识别边界处的缺陷：
 
 ### 步骤 2: 确定边界值
 
-对于范围 [       min,        max       ]，测试以下值：
+对于范围 [        min,         max        ]，测试以下值：
 ```
 边界值集合 = {min-1, min, min+1, max-1, max, max+1}
 ```
@@ -106,8 +106,8 @@ test_cases:
 **测试用例**：
 ```python
 def test_score_boundaries():
-    boundaries = [       -1,        0, 1, 99, 100, 101       ]
-    expected = [       'Invalid',        'Valid', 'Valid', 'Valid', 'Valid', 'Invalid'       ]
+    boundaries = [        -1,         0, 1, 99, 100, 101        ]
+    expected = [        'Invalid',         'Valid', 'Valid', 'Valid', 'Valid', 'Invalid'        ]
 
     for score, exp in zip(boundaries, expected):
         result = validate_score(score)

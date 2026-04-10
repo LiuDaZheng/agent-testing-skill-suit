@@ -2,7 +2,7 @@
 name: test-tool-recommender
 description: 智能测试工具推荐 - 根据项目场景推荐最佳测试工具
 metadata:
-  {"openclaw":{"requires":{"bins":[       "wc"]},       "os":["darwin","linux"       ]}}
+  {"openclaw":{"requires":{"bins":[        "wc"]},        "os":["darwin","linux"        ]}}
 ---
 
 # 智能测试工具推荐 Skill
@@ -92,9 +92,9 @@ metadata:
 ### 步骤 2: 筛选候选工具
 
 **筛选规则**:
-- IF 测试类型 == "单元测试" AND 技术栈 == "Python": 候选列表 = [       pytest,        unittest, nose2       ]
-- IF 测试类型 == "E2E" AND 技术栈 == "JavaScript": 候选列表 = [       Playwright,        Cypress, Selenium       ]
-- IF 测试类型 == "性能测试": 候选列表 = [       k6,        Locust, JMeter       ]
+- IF 测试类型 == "单元测试" AND 技术栈 == "Python": 候选列表 = [        pytest,         unittest, nose2        ]
+- IF 测试类型 == "E2E" AND 技术栈 == "JavaScript": 候选列表 = [        Playwright,         Cypress, Selenium        ]
+- IF 测试类型 == "性能测试": 候选列表 = [        k6,         Locust, JMeter        ]
 
 ### 步骤 3: 多维度评分
 
