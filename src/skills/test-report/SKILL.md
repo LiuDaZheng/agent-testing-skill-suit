@@ -5,7 +5,7 @@ metadata:
   openclaw:
     requires:
       bins: [ wc ]
-    os: [ darwin,  linux ]
+    os: [  darwin,   linux  ]
 ---
 
 # STLC 测试报告 Skill

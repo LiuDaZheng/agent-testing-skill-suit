@@ -2,7 +2,7 @@
 name: test-lifecycle
 description: STLC 总协调器 - 协调 6 个测试阶段，管理完整测试流程
 metadata:
-  {"openclaw":{"requires":{"bins":[     "wc"]},     "os":["darwin","linux"     ]}}
+  {"openclaw":{"requires":{"bins":[      "wc"]},      "os":["darwin","linux"      ]}}
 ---
 
 # STLC 总协调器 Skill
