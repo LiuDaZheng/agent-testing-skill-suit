@@ -2,7 +2,7 @@
 name: test-framework-config
 description: 测试框架配置生成 - pytest/Playwright 核心配置
 metadata:
-  {"openclaw":{"requires":{"bins":[     "wc"]},     "os":["darwin","linux"     ]}}
+  {"openclaw":{"requires":{"bins":[      "wc"]},      "os":["darwin","linux"      ]}}
 ---
 
 # 测试框架配置生成 Skill
@@ -203,9 +203,9 @@ export default defineConfig({
 
   // 报告器
   reporter: [
-    [     'html',      { outputFolder: 'reports/playwright' }     ],
-    [     'json',      { outputFile: 'reports/playwright/results.json' }     ],
-    [     'junit',      { outputFile: 'reports/playwright/junit.xml' }     ],
+    [      'html',       { outputFolder: 'reports/playwright' }      ],
+    [      'json',       { outputFile: 'reports/playwright/results.json' }      ],
+    [      'junit',       { outputFile: 'reports/playwright/junit.xml' }      ],
     ['list']
   ],
 
