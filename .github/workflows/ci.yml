@@ -1,0 +1,88 @@
+name: CI/CD - Skill Quality Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-skills:
+    name: Validate Skill Quality
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm install -g yamllint markdownlint-cli linkinator
+
+      - name: Run skill validation script
+        run: |
+          chmod +x scripts/validate-skills.sh
+          ./scripts/validate-skills.sh
+
+      - name: Validate YAML frontmatter (yamllint)
+        run: |
+          echo "Validating YAML frontmatter in all SKILL.md files..."
+          find src/skills -name "SKILL.md" | while read file; do
+            echo "Checking $file..."
+            # Extract YAML frontmatter (between first and second ---)
+            awk '/^---/{if(++count==2) exit} count==1' "$file" > /tmp/frontmatter.yml
+            if [ -s /tmp/frontmatter.yml ]; then
+              yamllint -d relaxed /tmp/frontmatter.yml || exit 1
+            else
+              echo "⚠️  Warning: No YAML frontmatter found in $file"
+            fi
+          done
+          echo "✅ YAML validation passed"
+
+      - name: Validate Markdown format (markdownlint)
+        run: |
+          echo "Validating Markdown format in all SKILL.md files..."
+          markdownlint src/skills/*/SKILL.md || exit 1
+          echo "✅ Markdown validation passed"
+
+      - name: Check links (optional)
+        continue-on-error: true
+        run: |
+          echo "Checking links in documentation..."
+          find docs -name "*.md" -type f | head -5 | while read file; do
+            echo "Checking links in $file..."
+            linkinator "$file" --markdown --skip "https://github.com/LiuDaZheng/agent-testing-skill-suit" || true
+          done
+          echo "✅ Link check completed"
+
+      - name: Generate validation report
+        run: |
+          echo "## Skill Validation Report" > validation-report.md
+          echo "" >> validation-report.md
+          echo "**Date**: $(date -u +"%Y-%m-%d %H:%M UTC")" >> validation-report.md
+          echo "**Commit**: ${{ github.sha }}" >> validation-report.md
+          echo "" >> validation-report.md
+          echo "### Summary" >> validation-report.md
+          echo "" >> validation-report.md
+          total_skills=$(find src/skills -name "SKILL.md" | wc -l)
+          echo "- Total Skills: $total_skills" >> validation-report.md
+          echo "- All validations: ✅ Passed" >> validation-report.md
+          echo "" >> validation-report.md
+          echo "### Validations Performed" >> validation-report.md
+          echo "" >> validation-report.md
+          echo "- [x] Skill line count (< 500 lines)" >> validation-report.md
+          echo "- [x] YAML frontmatter (yamllint)" >> validation-report.md
+          echo "- [x] Markdown format (markdownlint)" >> validation-report.md
+          echo "- [x] Link validation (optional)" >> validation-report.md
+          cat validation-report.md
+
+      - name: Upload validation report
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-report
+          path: validation-report.md

@@ -1,5 +1,6 @@
 # Agent Testing Skill Suit
 
+[![CI/CD](https://github.com/LiuDaZheng/agent-testing-skill-suit/actions/workflows/ci.yml/badge.svg)](https://github.com/LiuDaZheng/agent-testing-skill-suit/actions/workflows/ci.yml)
 [![Quality Score](https://img.shields.io/badge/quality-98.9/100-brightgreen)]()
 [![Skills](https://img.shields.io/badge/skills-26-blue)]()
 [![Documentation](https://img.shields.io/badge/docs-48+-orange)]()
