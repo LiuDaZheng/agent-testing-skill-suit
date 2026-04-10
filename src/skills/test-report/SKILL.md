@@ -4,8 +4,8 @@ description: STLC 测试报告阶段 - 生成测试总结报告、质量评估
 metadata:
   openclaw:
     requires:
-      bins: [wc]
-    os: [darwin, linux]
+      bins: [ wc ]
+    os: [ darwin, linux ]
 ---
 
 # STLC 测试报告 Skill
