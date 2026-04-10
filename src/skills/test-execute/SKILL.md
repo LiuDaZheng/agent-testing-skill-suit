@@ -4,8 +4,8 @@ description: STLC 测试执行阶段 - 执行测试用例、记录结果、报�
 metadata:
   openclaw:
     requires:
-      bins: [ wc ]
-    os: [     darwin,     linux     ]
+      bins: [wc]
+    os: [darwin, linux]
 ---
 
 # STLC 测试执行 Skill
