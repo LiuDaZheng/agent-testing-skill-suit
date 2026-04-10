@@ -181,7 +181,7 @@ T - Time (时间): 产品如何随时间变化
   会话 ID: ET-MOBILE-001
   应用：旅行预订 App
   时间：60 分钟
-  设备：[      iPhone 14,       Android Pixel 7      ]
+  设备：[       iPhone 14,        Android Pixel 7       ]
 
 章程:
   - 章程 1:

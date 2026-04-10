@@ -2,7 +2,7 @@
 name: test-workflow
 description: 测试工作流引擎 - 预定义流程，自动化执行
 metadata:
-  {"openclaw":{"requires":{"bins":[      "wc"]},      "os":["darwin","linux"      ]}}
+  {"openclaw":{"requires":{"bins":[       "wc"]},       "os":["darwin","linux"       ]}}
 ---
 
 # 测试工作流引擎 Skill
