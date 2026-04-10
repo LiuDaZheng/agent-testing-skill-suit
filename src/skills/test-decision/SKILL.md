@@ -167,17 +167,17 @@ def check_permission(role, is_owner, is_business_hours, is_whitelisted_ip):
     """
     decision_table = [
         # role, owner, hours, ip -> action
-        [  'admin',       '-',      '-',    '-',     'ALLOW'  ],
-        [  'manager',     '-',      'Y',    'Y',     'ALLOW'  ],
-        [  'manager',     '-',      'N',    '-',     'DENY'  ],
-        [  'manager',     '-',      '-',    'N',     'DENY'  ],
-        [  'employee',    'Y',      '-',    '-',     'ALLOW'  ],  # 所有者
-        [  'employee',    'N',      'Y',    'Y',     'ALLOW'  ],
-        [  'employee',    'N',      '-',    '-',     'DENY'  ],
+        [   'admin',        '-',      '-',    '-',     'ALLOW'   ],
+        [   'manager',      '-',      'Y',    'Y',     'ALLOW'   ],
+        [   'manager',      '-',      'N',    '-',     'DENY'   ],
+        [   'manager',      '-',      '-',    'N',     'DENY'   ],
+        [   'employee',     'Y',      '-',    '-',     'ALLOW'   ],  # 所有者
+        [   'employee',     'N',      'Y',    'Y',     'ALLOW'   ],
+        [   'employee',     'N',      '-',    '-',     'DENY'   ],
     ]
 
     for rule in decision_table:
-        if matches(rule, [  role,   is_owner, is_business_hours, is_whitelisted_ip  ]):
+        if matches(rule, [   role,    is_owner, is_business_hours, is_whitelisted_ip   ]):
             return rule[4]
     return 'DENY'
 
