@@ -215,14 +215,6 @@ class BasePage(ABC):
         self.driver = driver
         self.platform = platform
 
-    @abstractmethod
-    def locate_element(self, selector: str): pass
-
-    @abstractmethod
-    def click(self, selector: str): pass
-
-    @abstractmethod
-    def input_text(self, selector: str, text: str): pass
 ```
 
 **Web 实现**:
@@ -268,18 +260,6 @@ class PlatformFactory:
         if platform == 'web':
             return WebPage(driver, platform)
         elif platform in ('ios', 'android'):
-            return AppPage(driver, platform)
-        raise ValueError(f"Unsupported platform: {platform}")
-
-# 使用示例
-def test_login(driver_factory):
-    for platform in [     'web',      'ios', 'android'     ]:
-        driver = driver_factory.get(platform)
-        page = PlatformFactory.create_page(driver, platform, 'login')
-        page.input_text('phone', '13800138000')
-        page.input_text('code', '123456')
-        page.click('login-btn')
-        assert page.is_logged_in()
 ```
 
 ---
@@ -309,16 +289,7 @@ class PlatformDetector:
 ---
 
 ## 使用示例
-
 ### 示例 1: 跨平台登录测试
-
-**用户输入**：
-```
-需要编写登录功能的跨平台测试，覆盖 Web、iOS、Android
-```
-
-**Skill 输出**：
-```markdown
 ## 跨平台登录测试方案
 
 ### 1. 测试架构
@@ -363,14 +334,6 @@ pytest tests/cross_platform/test_login.py -v
 ---
 
 ### 示例 2: 小程序测试配置
-
-**用户输入**：
-```
-如何测试微信小程序的登录功能？
-```
-
-**Skill 输出**：
-```markdown
 ## 微信小程序测试方案
 
 ### 方案 1: 官方模拟器 (单元测试)
@@ -406,14 +369,6 @@ describe('Login Page', () => {
 ---
 
 ### 示例 3: 平台差异处理
-
-**用户输入**：
-```
-如何处理不同操作系统的路径差异？
-```
-
-**Skill 输出**：
-```markdown
 ## 路径差异处理方案
 
 ### 方案 1: 使用 pathlib (推荐)
