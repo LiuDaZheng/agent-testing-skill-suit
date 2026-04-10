@@ -85,10 +85,10 @@ references:
 ## 测试用例
 TC1: 正常取款流程
   S0 →[插卡]→ S1 →[正确 PIN]→ S3 →[取款]→ S4 →[取卡]→ S0
-  
+
 TC2: PIN 错误三次
   S0 →[插卡]→ S1 →[错误 PIN]→ S1 →[错误 PIN]→ S1 →[错误 PIN]→ S0(锁卡)
-  
+
 TC3: 超时转换
   S1 →[超时 30 秒]→ S0(退卡)
 ```
@@ -125,16 +125,16 @@ TC3: 超时转换
 ```python
 # 测试代码示例
 def test_login_state_machine():
-    states = ['LoggedOut', 'EnteringCredentials', 'Authenticated', 'Locked']
-    
+    states = [  'LoggedOut',   'EnteringCredentials', 'Authenticated', 'Locked'  ]
+
     # 正常登录
     assert transition('LoggedOut', 'enter_credentials') == 'EnteringCredentials'
     assert transition('EnteringCredentials', 'submit_valid') == 'Authenticated'
-    
+
     # 失败场景
     assert transition('EnteringCredentials', 'submit_invalid') == 'EnteringCredentials'
     assert transition('EnteringCredentials', 'submit_invalid_3times') == 'Locked'
-    
+
     # 无效转换
     assert transition('Authenticated', 'enter_credentials') == 'ERROR'
 ```
@@ -257,3 +257,4 @@ test('角色在 jumping 时不能直接攻击', () => {
 ---
 
 *基于 ISTQB CTFL  syllabus 状态转换测试技术 | 版本 1.0 | 2026-04-10*
+

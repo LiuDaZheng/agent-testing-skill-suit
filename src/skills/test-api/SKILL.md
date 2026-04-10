@@ -349,7 +349,7 @@ from jsonschema import validate
 
 USER_SCHEMA = {
     "type": "object",
-    "required": ["id", "name", "email"],
+    "required": [  "id",   "name", "email"  ],
     "properties": {
         "id": {"type": "integer"},
         "name": {"type": "string"},
@@ -488,3 +488,4 @@ API_BASE_URL=https://api.example.com
 - test-runner - 统一测试执行器
 - test-python - Python 测试
 - test-js - JavaScript/TypeScript 测试
+

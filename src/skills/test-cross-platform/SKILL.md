@@ -2,7 +2,7 @@
 name: test-cross-platform
 description: 跨平台测试适配 - Web/H5/小程序/App 多平台测试支持
 metadata:
-  {"openclaw":{"requires":{"bins":["wc"]},"os":["darwin","linux"]}}
+  {"openclaw":{"requires":{"bins":[  "wc"]},  "os":["darwin","linux"  ]}}
 ---
 
 # 跨平台测试适配 Skill
@@ -88,7 +88,7 @@ import platform
 def run_command(command):
     """跨平台命令执行"""
     system = platform.system()
-    shell_cmd = ['cmd', '/c', command] if system == 'Windows' else ['sh', '-c', command]
+    shell_cmd = [  'cmd',   '/c', command  ] if system == 'Windows' else [  'sh',   '-c', command  ]
     result = subprocess.run(shell_cmd, capture_output=True, text=True)
     return result.returncode == 0, result.stdout, result.stderr
 ```
@@ -137,12 +137,12 @@ test('WeChat H5 Login', async ({ page }) => {
   await page.setExtraHTTPHeaders({
     'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 MicroMessenger/8.0.0'
   });
-  
+
   // 模拟微信 JS-SDK
   await page.addInitScript(() => {
     (window as any).wx = { config: () => {}, ready: (cb: any) => cb() };
   });
-  
+
   await page.goto('https://example.com/wechat/login');
   await expect(page.locator('.wechat-auth-btn')).toBeVisible();
 });
@@ -210,17 +210,17 @@ from abc import ABC, abstractmethod
 
 class BasePage(ABC):
     """跨平台页面基类"""
-    
+
     def __init__(self, driver, platform: str):
         self.driver = driver
         self.platform = platform
-    
+
     @abstractmethod
     def locate_element(self, selector: str): pass
-    
+
     @abstractmethod
     def click(self, selector: str): pass
-    
+
     @abstractmethod
     def input_text(self, selector: str, text: str): pass
 ```
@@ -230,10 +230,10 @@ class BasePage(ABC):
 class WebPage(BasePage):
     def locate_element(self, selector: str):
         return self.driver.find_element(By.CSS_SELECTOR, selector)
-    
+
     def click(self, selector: str):
         self.locate_element(selector).click()
-    
+
     def input_text(self, selector: str, text: str):
         elem = self.locate_element(selector)
         elem.clear()
@@ -246,10 +246,10 @@ class AppPage(BasePage):
     def locate_element(self, selector: str):
         from appium.webdriver.common.appiumby import AppiumBy
         return self.driver.find_element(AppiumBy.ACCESSIBILITY_ID, selector)
-    
+
     def click(self, selector: str):
         self.locate_element(selector).tap()
-    
+
     def input_text(self, selector: str, text: str):
         self.locate_element(selector).set_value(text)
 ```
@@ -273,7 +273,7 @@ class PlatformFactory:
 
 # 使用示例
 def test_login(driver_factory):
-    for platform in ['web', 'ios', 'android']:
+    for platform in [  'web',   'ios', 'android'  ]:
         driver = driver_factory.get(platform)
         page = PlatformFactory.create_page(driver, platform, 'login')
         page.input_text('phone', '13800138000')
@@ -297,10 +297,10 @@ class PlatformDetector:
     def get_os() -> str:
         system = platform.system()
         return {'Windows': 'windows', 'Darwin': 'macos', 'Linux': 'linux'}.get(system, 'unknown')
-    
+
     @staticmethod
     def is_ci() -> bool:
-        ci_vars = ['CI', 'GITHUB_ACTIONS', 'GITLAB_CI', 'JENKINS_URL']
+        ci_vars = [  'CI',   'GITHUB_ACTIONS', 'GITLAB_CI', 'JENKINS_URL'  ]
         return any(os.getenv(var) for var in ci_vars)
 ```
 
@@ -379,11 +379,11 @@ const simulate = require('miniprogram-simulate');
 
 describe('Login Page', () => {
   let loginInstance;
-  
+
   beforeAll(() => {
     loginInstance = simulate.load('pages/login/login');
   });
-  
+
   test('should show error for invalid phone', () => {
     loginInstance.setData({ phone: '12345' });
     loginInstance.login();
@@ -470,3 +470,4 @@ def get_driver_path(browser: str) -> str:
 ---
 
 *版本：1.0 | 基于跨平台测试最佳实践 | 位置：~/.openclaw/workspace-skilldev/Agent-Testing-Skill-Suit/src/skills/test-cross-platform/*
+

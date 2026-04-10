@@ -2,7 +2,7 @@
 name: test-framework-config
 description: 测试框架配置生成 - pytest/Playwright 核心配置
 metadata:
-  {"openclaw":{"requires":{"bins":["wc"]},"os":["darwin","linux"]}}
+  {"openclaw":{"requires":{"bins":[  "wc"]},  "os":["darwin","linux"  ]}}
 ---
 
 # 测试框架配置生成 Skill
@@ -30,7 +30,7 @@ python_classes = Test*
 python_functions = test_*
 
 # 输出格式
-addopts = 
+addopts =
     -v                      # 详细输出
     --tb=short             # 简化 traceback
     --strict-markers       # 严格标记
@@ -188,42 +188,42 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   // 测试目录
   testDir: './tests/e2e',
-  
+
   // 超时配置
   timeout: 30 * 1000,
   expect: {
     timeout: 5000
   },
-  
+
   // 失败重试
   retries: process.env.CI ? 2 : 0,
-  
+
   // 并行执行
   workers: process.env.CI ? 1 : undefined,
-  
+
   // 报告器
   reporter: [
-    ['html', { outputFolder: 'reports/playwright' }],
-    ['json', { outputFile: 'reports/playwright/results.json' }],
-    ['junit', { outputFile: 'reports/playwright/junit.xml' }],
+    [  'html',   { outputFolder: 'reports/playwright' }  ],
+    [  'json',   { outputFile: 'reports/playwright/results.json' }  ],
+    [  'junit',   { outputFile: 'reports/playwright/junit.xml' }  ],
     ['list']
   ],
-  
+
   // 共享配置
   use: {
     // 基础 URL
     baseURL: process.env.BASE_URL || 'http://localhost:3000',
-    
+
     // 浏览器上下文
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    
+
     // 动作超时
     actionTimeout: 10000,
     navigationTimeout: 30000,
   },
-  
+
   // 浏览器配置
   projects: [
     {
@@ -434,3 +434,4 @@ pytest tests/ -v --cov=src --html=reports/test-report.html
 ---
 
 *版本：1.0 | 基于测试框架最佳实践 | 位置：~/.openclaw/workspace-skilldev/Agent-Testing-Skill-Suit/src/skills/test-framework-config/*
+

@@ -203,11 +203,11 @@ TC-003: 库存不足处理
   6a 余额不足:
     - 6a1. 系统显示余额不足
     - 6a2. 用例结束
-    
+
   3a 账户相同:
     - 3a1. 系统提示不能转给自己
     - 3a2. 返回步骤 3
-    
+
   5a 超过限额:
     - 5a1. 系统提示超过单日限额
     - 5a2. 用户修改金额或取消
@@ -229,7 +229,7 @@ TC-003: 库存不足处理
 class HotelBookingUseCase:
     """
     参与者：顾客、酒店系统、支付网关
-    
+
     主成功场景:
     1. 顾客搜索可用房间
     2. 系统显示可用房间列表
@@ -241,7 +241,7 @@ class HotelBookingUseCase:
     8. 系统锁定房间
     9. 系统发送确认信息
     """
-    
+
     def test_normal_booking(self):
         """TC-001: 正常预订流程"""
         # Given
@@ -250,21 +250,21 @@ class HotelBookingUseCase:
             'check_out': '2026-05-03',
             'guests': 2
         }
-        
+
         # When
         results = search_rooms(search_params)
         selected = results[0]
         booking = book_room(selected, guest_info, payment)
-        
+
         # Then
         assert booking.status == 'CONFIRMED'
         assert booking.confirmation_email_sent == True
-    
+
     def test_room_not_available(self):
         """TC-002: 房间被抢先预订"""
         # 并发场景：两个用户同时预订同一房间
         pass
-    
+
     def test_payment_failed(self):
         """TC-003: 支付失败"""
         # 支付失败后房间应释放
@@ -288,7 +288,7 @@ Scenario: 正常注册 (主成功场景)
     And 我点击注册按钮
   Then 我应该收到验证邮件
     And 我的账户状态为"待验证"
-  
+
   When 我点击邮件中的验证链接
   Then 我的账户状态变为"已激活"
     And 我自动登录
@@ -424,3 +424,4 @@ Scenario: 验证码错误 (扩展场景 5a)
 ---
 
 *基于 ISTQB CTFL syllabus 用例场景测试技术 | 版本 1.0 | 2026-04-10*
+

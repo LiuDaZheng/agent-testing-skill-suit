@@ -2,7 +2,7 @@
 name: test-requirement
 description: STLC 需求分析阶段 - 识别可测试需求，创建 RTM
 metadata:
-  {"openclaw":{"requires":{"bins":["wc"]},"os":["darwin","linux"]}}
+  {"openclaw":{"requires":{"bins":[  "wc"]},  "os":["darwin","linux"  ]}}
 ---
 
 # STLC 需求分析 Skill
@@ -129,3 +129,4 @@ REQ-003: 密码找回
 
 ---
 *版本：1.0 | 基于 ISTQB STLC 标准 | 位置：~/.openclaw/workspace-skilldev/Agent-Testing-Skill-Suit/src/skills/test-requirement/*
+

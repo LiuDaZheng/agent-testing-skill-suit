@@ -5,7 +5,7 @@ metadata:
   openclaw:
     requires:
       bins: [ wc ]
-    os: [ darwin, linux ]
+    os: [   darwin,   linux   ]
 ---
 
 # STLC 测试设计 Skill
@@ -353,3 +353,4 @@ def test_valid_login():
 
 ---
 *版本：1.0 | 基于 ISTQB STLC 标准 | 位置：~/.openclaw/workspace-skilldev/Agent-Testing-Skill-Suit/src/skills/test-design/*
+

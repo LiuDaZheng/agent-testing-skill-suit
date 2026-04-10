@@ -2,7 +2,7 @@
 name: test-ci-cd-config
 description: CI/CD 测试流水线配置 - GitHub Actions/GitLab CI/Jenkins
 metadata:
-  {"openclaw":{"requires":{"bins":["wc"]},"os":["darwin","linux"]}}
+  {"openclaw":{"requires":{"bins":[  "wc"]},  "os":["darwin","linux"  ]}}
 ---
 
 # CI/CD 测试流水线配置 Skill
@@ -27,7 +27,7 @@ name: Test Pipeline
 
 on:
   push:
-    branches: [main, develop]
+    branches: [  main,   develop  ]
   pull_request:
     branches: [main]
   schedule:
@@ -209,17 +209,17 @@ e2e-tests:
 ```groovy
 pipeline {
     agent any
-    
+
     environment {
         PYTHON_VERSION = '3.11'
         PIP_CACHE_DIR = "${WORKSPACE}/.cache/pip"
     }
-    
+
     tools {
         python 'python-3.11'
         nodejs 'nodejs-18'
     }
-    
+
     stages {
         stage('Unit Tests') {
             steps {
@@ -234,7 +234,7 @@ pipeline {
                 }
             }
         }
-        
+
         stage('API Tests') {
             steps {
                 sh '''
@@ -248,7 +248,7 @@ pipeline {
                 }
             }
         }
-        
+
         stage('E2E Tests') {
             steps {
                 sh '''
@@ -382,3 +382,4 @@ pipeline {
 ---
 
 *版本：1.0 | 基于 CI/CD 最佳实践 | 位置：~/.openclaw/workspace-skilldev/Agent-Testing-Skill-Suit/src/skills/test-ci-cd-config/*
+

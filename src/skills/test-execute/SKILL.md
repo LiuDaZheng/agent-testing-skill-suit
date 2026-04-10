@@ -5,7 +5,7 @@ metadata:
   openclaw:
     requires:
       bins: [ wc ]
-    os: [ darwin, linux ]
+    os: [   darwin,   linux   ]
 ---
 
 # STLC 测试执行 Skill
@@ -399,3 +399,4 @@ Rejected  Deferred
 
 ---
 *版本：1.0 | 基于 ISTQB STLC 标准 | 位置：~/.openclaw/workspace-skilldev/Agent-Testing-Skill-Suit/src/skills/test-execute/*
+

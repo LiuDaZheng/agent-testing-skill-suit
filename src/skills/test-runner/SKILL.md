@@ -160,7 +160,7 @@ export default defineConfig({
     { name: 'firefox', use: { browserName: 'firefox' } },
     { name: 'webkit', use: { browserName: 'webkit' } },
   ],
-  reporter: [['html'], ['github']],
+  reporter: [  ['html'],   ['github'  ]],
 });
 ```
 
@@ -192,3 +192,4 @@ export default defineConfig({
 - test-python - Python 测试详情
 - test-e2e - E2E 测试详情
 - test-api - API 测试详情
+

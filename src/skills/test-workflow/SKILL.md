@@ -2,7 +2,7 @@
 name: test-workflow
 description: 测试工作流引擎 - 预定义流程，自动化执行
 metadata:
-  {"openclaw":{"requires":{"bins":["wc"]},"os":["darwin","linux"]}}
+  {"openclaw":{"requires":{"bins":[  "wc"]},  "os":["darwin","linux"  ]}}
 ---
 
 # 测试工作流引擎 Skill
@@ -151,9 +151,9 @@ steps:
     output: test_cases
   - name: 跨平台执行
     skill: test-cross-platform
-    input: 
+    input:
       test_cases: test_cases
-      platforms: [web, ios, android]
+      platforms: [  web,   ios, android  ]
     output: cross_platform_results
   - name: 报告生成
     skill: test-report
@@ -444,3 +444,4 @@ outputs/test-session-20260410-001/
 - 步骤切换延迟：< 1 秒
 - 数据传递延迟：< 500ms
 - 错误恢复时间：< 5 秒
+

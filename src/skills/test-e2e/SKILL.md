@@ -131,16 +131,16 @@ import { test, expect } from '@playwright/test';
 test('login and logout', async ({ page }) => {
   // 访问登录页
   await page.goto('https://example.com/login');
-  
+
   // 填写表单
   await page.getByLabel('Email').fill('test@example.com');
   await page.getByLabel('Password').fill('password123');
   await page.getByRole('button', { name: 'Sign in' }).click();
-  
+
   // 验证登录成功
   await expect(page).toHaveURL('/dashboard');
   await expect(page.getByText('Welcome')).toBeVisible();
-  
+
   // 登出
   await page.getByRole('button', { name: 'Logout' }).click();
   await expect(page).toHaveURL('/login');
@@ -212,16 +212,16 @@ import { test, expect } from '@playwright/test';
 
 test('auto-wait and assertions', async ({ page }) => {
   await page.goto('https://example.com');
-  
+
   // 自动等待元素可操作
   await page.getByRole('button').click();
-  
+
   // 等待导航
   await page.waitForURL(/dashboard/);
-  
+
   // 等待元素
   await page.waitForSelector('.loaded');
-  
+
   // 各种断言
   await expect(page).toHaveTitle(/Example/);
   await expect(page.locator('.item')).toHaveCount(5);
@@ -286,7 +286,7 @@ export default defineConfig({
     { name: 'Mobile Chrome', use: { ...devices['Pixel 5'] } },
     { name: 'Mobile Safari', use: { ...devices['iPhone 12'] } },
   ],
-  reporter: [['html'], ['github']],
+  reporter: [  ['html'],   ['github'  ]],
 });
 ```
 
@@ -345,3 +345,4 @@ module.exports = defineConfig({
 - test-runner - 统一测试执行器
 - test-js - JavaScript/TypeScript 测试
 - test-api - API 测试
+

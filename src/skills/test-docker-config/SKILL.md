@@ -2,7 +2,7 @@
 name: test-docker-config
 description: Docker 测试环境配置 - Dockerfile/docker-compose/容器化测试
 metadata:
-  {"openclaw":{"requires":{"bins":["wc"]},"os":["darwin","linux"]}}
+  {"openclaw":{"requires":{"bins":[  "wc"]},  "os":["darwin","linux"  ]}}
 ---
 
 # Docker 测试环境配置 Skill
@@ -51,7 +51,7 @@ ENV PYTHONPATH=/app
 ENV PYTEST_ADDOPTS="-v --tb=short"
 
 # 默认命令
-CMD ["pytest", "tests/"]
+CMD [  "pytest",   "tests/"  ]
 ```
 
 ---
@@ -359,3 +359,4 @@ ENV=prod API_BASE_URL=https://api.example.com docker-compose run --rm test pytes
 ---
 
 *版本：1.0 | 基于容器化测试最佳实践 | 位置：~/.openclaw/workspace-skilldev/Agent-Testing-Skill-Suit/src/skills/test-docker-config/*
+
