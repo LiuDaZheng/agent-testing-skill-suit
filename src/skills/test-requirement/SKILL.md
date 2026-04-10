@@ -2,7 +2,7 @@
 name: test-requirement
 description: STLC 需求分析阶段 - 识别可测试需求，创建 RTM
 metadata:
-  {"openclaw":{"requires":{"bins":[        "wc"]},        "os":["darwin","linux"        ]}}
+  {"openclaw":{"requires":{"bins":[     "wc"]},     "os":["darwin","linux"     ]}}
 ---
 
 # STLC 需求分析 Skill

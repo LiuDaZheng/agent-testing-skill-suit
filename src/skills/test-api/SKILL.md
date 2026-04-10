@@ -173,6 +173,49 @@ def test_get_posts():
     """获取帖子列表"""
     response = requests.get(f"{BASE_URL}/posts")
     assert response.status_code == 200
+    data = response.json()
+    assert len(data) > 0
+    assert "title" in data[0]
+
+def test_get_single_post():
+    """获取单个帖子"""
+    response = requests.get(f"{BASE_URL}/posts/1")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["id"] == 1
+
+def test_create_post():
+    """创建新帖子"""
+    new_post = {
+        "title": "Test Post",
+        "body": "This is a test",
+        "userId": 1
+    }
+    response = requests.post(f"{BASE_URL}/posts", json=new_post)
+    assert response.status_code == 201
+    data = response.json()
+    assert data["title"] == "Test Post"
+    assert data["id"] == 101  # JSONPlaceholder 固定返回 101
+
+def test_update_post():
+    """更新帖子"""
+    update_data = {"title": "Updated Title"}
+    response = requests.put(
+        f"{BASE_URL}/posts/1",
+        json=update_data
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["title"] == "Updated Title"
+
+def test_delete_post():
+    """删除帖子"""
+    response = requests.delete(f"{BASE_URL}/posts/1")
+    assert response.status_code == 204
+EOF
+
+# 运行测试
+pytest test_rest_api.py -v
 ```
 
 ### 示例 2: 带认证的 API 测试
@@ -191,6 +234,20 @@ def get_api_key():
 
 @pytest.fixture
 def auth_headers():
+    # 实际使用时从环境变量读取 token
+    token = os.getenv("API_KEY")
+    return {"Authorization": f"Bearer {token}"}
+
+def test_authenticated_request(auth_headers):
+    response = requests.get(
+        f"{BASE_URL}/protected",
+        headers=auth_headers
+    )
+    assert response.status_code == 200
+
+def test_unauthenticated_request():
+    response = requests.get(f"{BASE_URL}/protected")
+    assert response.status_code == 401
 ```
 
 ### 示例 3: GraphQL 测试 (Python)
@@ -209,6 +266,49 @@ def query_graphql(query, variables=None):
     response = requests.post(GRAPHQL_URL, json=payload)
     return response.json()
 
+def test_get_users():
+    query = """
+    {
+        users {
+            id
+            name
+            email
+        }
+    }
+    """
+    result = query_graphql(query)
+    assert "data" in result
+    assert "users" in result["data"]
+    assert len(result["data"]["users"]) > 0
+
+def test_get_user_by_id():
+    query = """
+    query GetUser($id: ID!) {
+        user(id: $id) {
+            id
+            name
+        }
+    }
+    """
+    result = query_graphql(query, {"id": "1"})
+    assert result["data"]["user"]["id"] == "1"
+
+def test_create_user_mutation():
+    mutation = """
+    mutation {
+        createUser(name: "Test User", email: "test@example.com") {
+            id
+            name
+            email
+        }
+    }
+    """
+    result = query_graphql(mutation)
+    assert result["data"]["createUser"]["name"] == "Test User"
+EOF
+
+# 运行测试
+pytest test_graphql.py -v
 ```
 
 ### 示例 4: API 测试夹具 (pytest fixtures)
@@ -227,6 +327,18 @@ def api_client():
 
 @pytest.fixture
 def auth_token():
+    """获取认证 token"""
+    response = requests.post(
+        "https://api.example.com/auth/login",
+        json={"username": "test", "password": "test123"}
+    )
+    return response.json()["token"]
+
+@pytest.fixture
+def authenticated_client(api_client, auth_token):
+    """带认证的客户端"""
+    api_client.headers.update({"Authorization": f"Bearer {auth_token}"})
+    return api_client
 ```
 
 ### 示例 5: 响应模式验证
@@ -237,7 +349,7 @@ from jsonschema import validate
 
 USER_SCHEMA = {
     "type": "object",
-    "required": [        "id",         "name", "email"        ],
+    "required": [     "id",      "name", "email"     ],
     "properties": {
         "id": {"type": "integer"},
         "name": {"type": "string"},

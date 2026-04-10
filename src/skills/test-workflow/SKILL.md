@@ -2,7 +2,7 @@
 name: test-workflow
 description: 测试工作流引擎 - 预定义流程，自动化执行
 metadata:
-  {"openclaw":{"requires":{"bins":[        "wc"]},        "os":["darwin","linux"        ]}}
+  {"openclaw":{"requires":{"bins":[     "wc"]},     "os":["darwin","linux"     ]}}
 ---
 
 # 测试工作流引擎 Skill
@@ -37,6 +37,29 @@ steps:
     output: test_plan
     validation: plan_approved
   - name: 用例生成
+    skill: test-case-generator
+    input: user_story.acceptance_criteria
+    output: test_cases
+    validation: coverage_rate > 90
+  - name: 用例评审
+    skill: test-design
+    input: test_cases
+    output: reviewed_cases
+    validation: review_passed
+  - name: 测试执行
+    skill: test-execute
+    input: reviewed_cases
+    output: execution_results
+    validation: execution_complete
+  - name: 报告生成
+    skill: test-report
+    input: execution_results
+    output: final_report
+    validation: report_generated
+exit_criteria:
+  - all_steps_completed
+  - final_report_generated
+  - artifacts_saved
 ```
 
 ### 工作流 2: 快速测试流程 (QUICK_TEST)
@@ -129,6 +152,16 @@ steps:
   - name: 跨平台执行
     skill: test-cross-platform
     input:
+      test_cases: test_cases
+      platforms: [     web,      ios, android     ]
+    output: cross_platform_results
+  - name: 报告生成
+    skill: test-report
+    input: cross_platform_results
+    output: final_report
+exit_criteria:
+  - all_platforms_tested
+  - final_report_generated
 ```
 
 ## 工作流执行引擎
@@ -267,6 +300,17 @@ steps:
 - 输出：User Story + 4 条 AC
 - 文件：outputs/.../user-story.md
 
+## 最终产出物
+1. User Story 文档
+2. 测试用例文档
+3. 执行结果
+4. 测试总结报告
+
+## 质量评估
+- 需求覆盖率：100%
+- 用例数量：15 个
+- 执行通过率：87%
+- 缺陷数量：3 个
 ```
 
 ## 使用示例

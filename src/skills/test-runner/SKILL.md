@@ -160,7 +160,7 @@ export default defineConfig({
     { name: 'firefox', use: { browserName: 'firefox' } },
     { name: 'webkit', use: { browserName: 'webkit' } },
   ],
-  reporter: [        ['html'],         ['github'        ]],
+  reporter: [     ['html'],      ['github'     ]],
 });
 ```
 

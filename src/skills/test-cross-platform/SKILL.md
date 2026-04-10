@@ -2,7 +2,7 @@
 name: test-cross-platform
 description: 跨平台测试适配 - Web/H5/小程序/App 多平台测试支持
 metadata:
-  {"openclaw":{"requires":{"bins":[        "wc"]},        "os":["darwin","linux"        ]}}
+  {"openclaw":{"requires":{"bins":[     "wc"]},     "os":["darwin","linux"     ]}}
 ---
 
 # 跨平台测试适配 Skill
@@ -88,7 +88,7 @@ import platform
 def run_command(command):
     """跨平台命令执行"""
     system = platform.system()
-    shell_cmd = [        'cmd',         '/c', command        ] if system == 'Windows' else [        'sh',         '-c', command        ]
+    shell_cmd = [     'cmd',      '/c', command     ] if system == 'Windows' else [     'sh',      '-c', command     ]
     result = subprocess.run(shell_cmd, capture_output=True, text=True)
     return result.returncode == 0, result.stdout, result.stderr
 ```
@@ -215,6 +215,14 @@ class BasePage(ABC):
         self.driver = driver
         self.platform = platform
 
+    @abstractmethod
+    def locate_element(self, selector: str): pass
+
+    @abstractmethod
+    def click(self, selector: str): pass
+
+    @abstractmethod
+    def input_text(self, selector: str, text: str): pass
 ```
 
 **Web 实现**:
@@ -260,6 +268,18 @@ class PlatformFactory:
         if platform == 'web':
             return WebPage(driver, platform)
         elif platform in ('ios', 'android'):
+            return AppPage(driver, platform)
+        raise ValueError(f"Unsupported platform: {platform}")
+
+# 使用示例
+def test_login(driver_factory):
+    for platform in [     'web',      'ios', 'android'     ]:
+        driver = driver_factory.get(platform)
+        page = PlatformFactory.create_page(driver, platform, 'login')
+        page.input_text('phone', '13800138000')
+        page.input_text('code', '123456')
+        page.click('login-btn')
+        assert page.is_logged_in()
 ```
 
 ---
@@ -280,7 +300,7 @@ class PlatformDetector:
 
     @staticmethod
     def is_ci() -> bool:
-        ci_vars = [        'CI',         'GITHUB_ACTIONS', 'GITLAB_CI', 'JENKINS_URL'        ]
+        ci_vars = [     'CI',      'GITHUB_ACTIONS', 'GITLAB_CI', 'JENKINS_URL'     ]
         return any(os.getenv(var) for var in ci_vars)
 ```
 
@@ -289,7 +309,16 @@ class PlatformDetector:
 ---
 
 ## 使用示例
+
 ### 示例 1: 跨平台登录测试
+
+**用户输入**：
+```
+需要编写登录功能的跨平台测试，覆盖 Web、iOS、Android
+```
+
+**Skill 输出**：
+```markdown
 ## 跨平台登录测试方案
 
 ### 1. 测试架构
@@ -334,6 +363,14 @@ pytest tests/cross_platform/test_login.py -v
 ---
 
 ### 示例 2: 小程序测试配置
+
+**用户输入**：
+```
+如何测试微信小程序的登录功能？
+```
+
+**Skill 输出**：
+```markdown
 ## 微信小程序测试方案
 
 ### 方案 1: 官方模拟器 (单元测试)
@@ -369,6 +406,14 @@ describe('Login Page', () => {
 ---
 
 ### 示例 3: 平台差异处理
+
+**用户输入**：
+```
+如何处理不同操作系统的路径差异？
+```
+
+**Skill 输出**：
+```markdown
 ## 路径差异处理方案
 
 ### 方案 1: 使用 pathlib (推荐)

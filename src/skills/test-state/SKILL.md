@@ -125,7 +125,7 @@ TC3: 超时转换
 ```python
 # 测试代码示例
 def test_login_state_machine():
-    states = [        'LoggedOut',         'EnteringCredentials', 'Authenticated', 'Locked'        ]
+    states = [     'LoggedOut',      'EnteringCredentials', 'Authenticated', 'Locked'     ]
 
     # 正常登录
     assert transition('LoggedOut', 'enter_credentials') == 'EnteringCredentials'

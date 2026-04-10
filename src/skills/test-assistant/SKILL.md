@@ -2,7 +2,7 @@
 name: test-assistant
 description: 测试助手 - 统一入口，智能路由到各测试 Skill
 metadata:
-  {"openclaw":{"requires":{"bins":[        "wc"]},        "os":["darwin","linux"        ]}}
+  {"openclaw":{"requires":{"bins":[     "wc"]},     "os":["darwin","linux"     ]}}
 ---
 
 # 测试助手 Skill
@@ -63,7 +63,7 @@ metadata:
   "user_id": "user-xxx",
   "started_at": "2026-04-10T10:00:00Z",
   "current_stage": "test-design",
-  "completed_stages": [        "requirement",         "plan"        ],
+  "completed_stages": [     "requirement",      "plan"     ],
   "artifacts": {
     "user_story": {...},
     "test_cases": [...],
@@ -106,6 +106,17 @@ metadata:
   - 测试策略已确认
   - 资源已准备
 
+### 进行中
+🔄 测试设计 (60%)
+  - 已生成 9/15 个测试用例
+  - 预计 5 分钟完成
+
+### 待完成
+⏳ 测试执行 (0%)
+⏳ 测试报告 (0%)
+
+### 下一步
+调用 test-case-generator 生成剩余用例
 ```
 
 ### 进度计算规则
