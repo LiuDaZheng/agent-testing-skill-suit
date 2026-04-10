@@ -20,9 +20,18 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
       - name: Install dependencies
         run: |
-          npm install -g yamllint markdownlint-cli linkinator
+          # Install Python tools
+          pip install yamllint
+          
+          # Install Node.js tools
+          npm install -g markdownlint-cli linkinator
 
       - name: Run skill validation script
         run: |
