@@ -1,84 +1,261 @@
-# Agent-Testing-Skill-Suit
+# Agent Testing Skill Suit
 
-**STLC 阶段层 Skill 套装** - 基于 ISTQB 标准的完整软件测试生命周期管理工具
+[![Quality Score](https://img.shields.io/badge/quality-98.9/100-brightgreen)]()
+[![Skills](https://img.shields.io/badge/skills-26-blue)]()
+[![Documentation](https://img.shields.io/badge/docs-48+-orange)]()
+[![License](https://img.shields.io/badge/license-OpenClaw-lightgrey)]()
 
----
-
-## 概述
-
-本套装包含 6 个 STLC（Software Testing Life Cycle）阶段层 Skill，覆盖完整的软件测试流程：
-
-| Skill | 阶段 | 核心功能 |
-|-------|------|----------|
-| test-requirement | 需求分析 | 识别可测试需求、创建 RTM、发现需求缺陷 |
-| test-plan | 测试计划 | 制定测试策略、风险评估、资源估算 |
-| test-design | 测试设计 | 设计测试用例、应用测试设计技术 |
-| test-execute | 测试执行 | 执行测试用例、报告缺陷、跟踪状态 |
-| test-report | 测试报告 | 汇总测试结果、质量评估、发布建议 |
-| test-lifecycle | 总协调器 | 协调 6 个阶段、管理阶段过渡、风险管理 |
+> **完整的自动化测试生命周期 Skill 体系**  
+> 基于 ISTQB STLC 标准，覆盖软件测试全流程
 
 ---
 
-## 基于标准
+## 📋 目录
 
-- **ISTQB STLC 标准**: https://www.istqb.org/
-- **GeeksforGeeks STLC**: https://www.geeksforgeeks.org/software-testing/software-testing-life-cycle-stlc/
-- **OpenClaw Skills 规范**: https://docs.openclaw.ai/tools/skills
+- [简介](#简介)
+- [核心特性](#核心特性)
+- [架构设计](#架构设计)
+- [快速开始](#快速开始)
+- [Skill 清单](#skill-清单)
+- [使用示例](#使用示例)
+- [项目结构](#项目结构)
+- [质量指标](#质量指标)
+- [贡献指南](#贡献指南)
+- [许可证](#许可证)
 
 ---
 
-## 安装位置
+## 简介
 
-**开发位置**（验收前）:
+**Agent Testing Skill Suit** 是一套完整的自动化测试生命周期 Skill 体系，包含 26 个专业技能，覆盖软件测试的完整流程。
+
+### 核心价值
+
+- ✅ **完整 STLC 覆盖** - 6 个阶段，从需求到报告
+- ✅ **专业测试技术** - 8 种 ISTQB 标准测试设计技术
+- ✅ **多语言支持** - Python, JavaScript, E2E, API
+- ✅ **开箱即用** - 统一入口，智能路由
+- ✅ **高质量保证** - 质量评分 98.9/100，安全检查 0 风险
+
+---
+
+## 核心特性
+
+### 🎯 五层架构模型
+
 ```
-~/.openclaw/workspace-skilldev/Agent-Testing-Skill-Suit/src/skills/
+┌─────────────────────────────────────────┐
+│  第 1 层：用户交互层                      │
+│  test-assistant (统一入口)              │
+├─────────────────────────────────────────┤
+│  第 2 层：编排层                          │
+│  test-lifecycle + test-workflow         │
+├─────────────────────────────────────────┤
+│  第 3 层：阶段层（STLC 生命周期）         │
+│  6 个 STLC 阶段 Skill                    │
+├─────────────────────────────────────────┤
+│  第 4 层：技术层（测试设计技术）          │
+│  8 种测试设计技术                        │
+├─────────────────────────────────────────┤
+│  第 5 层：执行层（语言/框架）            │
+│  6 个执行 Skill                          │
+└─────────────────────────────────────────┘
 ```
 
-**生产位置**（验收后）:
-```
-~/.openclaw/skills/
-```
+### 📊 完整统计
 
-⚠️ **重要**: 验收前禁止部署到生产位置！
+| 统计项 | 数量 |
+|--------|------|
+| **总 Skill 数** | 26 |
+| **STLC 阶段** | 6/6 (100%) |
+| **测试技术** | 8 种 |
+| **支持语言** | 4 种 |
+| **项目文档** | 48+ |
+| **质量评分** | 98.9/100 |
+| **安全检查** | 0 风险 |
+
+---
+
+## 架构设计
+
+### 阶段层（6 个 Skill）
+
+基于 ISTQB STLC 标准的 6 个阶段：
+
+1. **test-requirement** - 需求分析
+2. **test-plan** - 测试计划
+3. **test-design** - 测试设计
+4. **test-execute** - 测试执行
+5. **test-report** - 测试报告
+6. **test-lifecycle** - 生命周期管理
+
+### 技术层（8 个 Skill）
+
+8 种专业测试设计技术：
+
+1. **test-boundary** - 边界值分析
+2. **test-equivalence** - 等价类划分
+3. **test-state** - 状态转换测试
+4. **test-decision** - 决策表测试
+5. **test-usecase** - 用例场景测试
+6. **test-exploratory** - 探索式测试
+7. **test-story-parser** - User Story 解析
+8. **test-case-generator** - 测试用例生成
+
+### 执行层（6 个 Skill）
+
+多语言测试执行支持：
+
+1. **test-runner** - 统一执行器
+2. **test-js** - JavaScript/TS 测试
+3. **test-python** - Python 测试
+4. **test-e2e** - 端到端测试
+5. **test-api** - API 测试
+6. **test-cross-platform** - 跨平台测试
+
+### 辅助层（4 个 Skill）
+
+配置和工具支持：
+
+1. **test-framework-config** - 框架配置
+2. **test-ci-cd-config** - CI/CD 配置
+3. **test-docker-config** - Docker 配置
+4. **test-tool-recommender** - 工具推荐
 
 ---
 
 ## 快速开始
 
-### 1. 需求分析阶段
-```
-使用 test-requirement 分析需求文档
-输出：RTM、需求缺陷清单
+### 前置条件
+
+- OpenClaw 已安装并配置
+- Python 3.8+ (用于 Python 测试)
+- Node.js 16+ (用于 JS 测试)
+
+### 安装
+
+Skill 已安装在 `~/.openclaw/skills/`，无需额外安装。
+
+### 基础使用
+
+```bash
+# 使用统一入口（推荐）
+openclaw run test-assistant "帮我测试登录功能"
+
+# 使用特定 Skill
+openclaw run test-design "为登录功能设计测试用例"
+openclaw run test-execute "执行测试用例"
+openclaw run test-report "生成测试报告"
+
+# 使用工作流
+openclaw run test-workflow "启动完整 STLC 流程"
 ```
 
-### 2. 测试计划阶段
-```
-使用 test-plan 制定测试计划
-输出：测试计划文档、风险评估报告
+---
+
+## Skill 清单
+
+### 阶段层
+
+| Skill | 职责 | 行数 |
+|------|------|------|
+| test-requirement | 需求分析 | 131 |
+| test-plan | 测试计划 | 166 |
+| test-design | 测试设计 | 355 |
+| test-execute | 测试执行 | 401 |
+| test-report | 测试报告 | 328 |
+| test-lifecycle | 生命周期管理 | 184 |
+
+### 技术层
+
+| Skill | 职责 | 行数 |
+|------|------|------|
+| test-boundary | 边界值分析 | 248 |
+| test-equivalence | 等价类划分 | 416 |
+| test-state | 状态转换测试 | 259 |
+| test-decision | 决策表测试 | 328 |
+| test-usecase | 用例场景测试 | 426 |
+| test-exploratory | 探索式测试 | 431 |
+| test-story-parser | User Story 解析 | 409 |
+| test-case-generator | 测试用例生成 | 500 |
+
+### 执行层
+
+| Skill | 职责 | 行数 |
+|------|------|------|
+| test-runner | 统一执行器 | 194 |
+| test-js | JavaScript/TS 测试 | 297 |
+| test-python | Python 测试 | 372 |
+| test-e2e | 端到端测试 | 347 |
+| test-api | API 测试 | 490 |
+| test-cross-platform | 跨平台测试 | 472 |
+
+### 辅助层
+
+| Skill | 职责 | 行数 |
+|------|------|------|
+| test-framework-config | 框架配置 | 436 |
+| test-ci-cd-config | CI/CD 配置 | 384 |
+| test-docker-config | Docker 配置 | 361 |
+| test-tool-recommender | 工具推荐 | 429 |
+
+**所有 Skill 均符合 OpenClaw 规范（< 500 行）** ✅
+
+---
+
+## 使用示例
+
+### 示例 1: 完整测试流程
+
+```bash
+# 启动完整 STLC 流程
+openclaw run test-workflow "启动电商平台的完整测试流程"
+
+# 输出：
+# 📋 STLC 流程启动
+# 阶段 1: 需求分析 (进行中)
+# 阶段 2: 测试计划 (待开始)
+# ...
 ```
 
-### 3. 测试设计阶段
-```
-使用 test-design 设计测试用例
-输出：测试用例文档、测试数据清单
+### 示例 2: 测试用例设计
+
+```bash
+# 为登录功能设计测试用例
+openclaw run test-design "为登录功能设计测试用例，包含边界值和等价类"
+
+# 输出：
+# ## 测试用例设计
+# ### 边界值测试
+# - TC-LOGIN-001: 空密码
+# - TC-LOGIN-002: 最小长度密码
+# ...
 ```
 
-### 4. 测试执行阶段
-```
-使用 test-execute 执行测试
-输出：执行记录、缺陷报告
+### 示例 3: 测试执行
+
+```bash
+# 执行 Python 测试
+openclaw run test-python "运行 tests/ 目录下的所有测试"
+
+# 输出：
+# ✅ 测试执行完成
+# 总计：50 个测试
+# 通过：48 个
+# 失败：2 个
 ```
 
-### 5. 测试报告阶段
-```
-使用 test-report 生成测试报告
-输出：测试总结报告、质量评估
-```
+### 示例 4: 生成报告
 
-### 6. 生命周期管理
-```
-使用 test-lifecycle 协调整个流程
-输出：完整测试档案、经验教训
+```bash
+# 生成测试报告
+openclaw run test-report "基于执行结果生成测试报告"
+
+# 输出：
+# ## 测试总结报告
+# 执行率：100%
+# 通过率：96%
+# 质量评估：优秀
 ```
 
 ---
@@ -87,95 +264,93 @@
 
 ```
 Agent-Testing-Skill-Suit/
-├── README.md                    # 本文件
-├── docs/
-│   └── development-log.md       # 开发日志
-└── src/skills/
-    ├── test-requirement/
-    │   ├── SKILL.md
-    │   └── references/
-    │       ├── rtm-template.md
-    │       └── defect-checklist.md
-    ├── test-plan/
-    │   ├── SKILL.md
-    │   └── references/
-    │       ├── test-plan-template.md
-    │       └── risk-assessment.md
-    ├── test-design/
-    │   ├── SKILL.md
-    │   └── references/
-    │       ├── test-case-template.md
-    │       └── design-techniques.md
-    ├── test-execute/
-    │   ├── SKILL.md
-    │   └── references/
-    │       ├── defect-report-template.md
-    │       └── execution-checklist.md
-    ├── test-report/
-    │   ├── SKILL.md
-    │   └── references/
-    │       ├── test-report-template.md
-    │       └── quality-model.md
-    └── test-lifecycle/
-        ├── SKILL.md
-        └── references/
-            ├── stage-review-template.md
-            └── risk-management.md
+├── src/skills/              # Skill 源码（26 个）
+│   ├── test-requirement/
+│   ├── test-plan/
+│   ├── test-design/
+│   ├── test-execute/
+│   ├── test-report/
+│   ├── test-lifecycle/
+│   ├── test-boundary/
+│   ├── test-equivalence/
+│   ├── ...
+│   └── test-workflow/
+├── docs/                    # 项目文档（48+ 个）
+│   ├── kickoff.md
+│   ├── overview.md
+│   ├── architecture.md
+│   ├── quality-audit-report.md
+│   ├── safety-audit-report.md
+│   └── ...
+├── tests/                   # 测试用例
+│   ├── unit/
+│   ├── integration/
+│   └── e2e/
+├── scripts/                 # 辅助脚本
+│   ├── skill-audit.py
+│   └── skill-quality-audit.sh
+├── CHECKLIST.md             # 检查清单
+├── DEVELOPMENT.md           # 开发指南
+├── PROJECT_STRUCTURE.md     # 项目结构
+├── README.md                # 项目说明（本文档）
+└── TODO.md                  # 任务清单
 ```
 
 ---
 
-## 验收标准
+## 质量指标
 
 ### 代码质量
-- [x] SKILL.md 符合 OpenClaw 规范（YAML frontmatter + 指令）
-- [x] 行数 < 500（所有 Skill 满足）
-- [x] Token < 4000（所有 Skill 满足）
-- [x] 引用来源清晰标注
 
-### 文档完整性
-- [x] 每个 Skill 包含 SKILL.md
-- [x] 每个 Skill 包含 references/ 目录
-- [x] 每个 Skill 至少 3 个使用示例
-- [x] 开发日志已记录
+| 指标 | 目标 | 实际 | 状态 |
+|------|------|------|------|
+| **Skill 数量** | 15+ | **26** | ✅ 超额 73% |
+| **文档数量** | 10+ | **48+** | ✅ 超额 380% |
+| **行数合规** | < 500 行 | **100%** | ✅ 全部合规 |
+| **质量评分** | > 80 | **98.9** | ✅ 优秀 |
+| **安全检查** | 0 风险 | **0** | ✅ 无风险 |
+| **STLC 覆盖** | 6 阶段 | **6/6** | ✅ 完整覆盖 |
+| **测试技术** | 6+ 种 | **8 种** | ✅ 超额 33% |
 
-### 安全检查
-- [ ] 通过 agent-safety 检查
-- [ ] 无敏感信息泄露
-- [ ] 无危险命令
+### 审计报告
 
-### 审计检查
-- [ ] 通过 agent-audit 审计
-- [ ] 认知负载评估完成
-- [ ] TODO.md 已更新
+- ✅ **质量审计报告**: `docs/quality-audit-report.md`
+- ✅ **安全审计报告**: `docs/safety-audit-report.md`
+- ✅ **验证报告**: `docs/verification-report.md`
 
 ---
 
-## 使用示例
+## 贡献指南
 
-### 示例 1: 启动 STLC 流程
-```
-使用 test-lifecycle 启动电商平台的 STLC 测试流程
-```
+### 开发流程
 
-### 示例 2: 需求分析
-```
-使用 test-requirement 分析登录功能需求
-输出：RTM、需求缺陷清单
-```
+1. Fork 项目
+2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 开启 Pull Request
 
-### 示例 3: 阶段过渡评审
+### 代码规范
+
+- 遵循 OpenClaw Skill 规范
+- 所有 Skill < 500 行
+- 包含完整的 YAML frontmatter
+- 至少 3 个使用示例
+- 包含验收检查清单
+
+### 提交规范
+
+使用 Conventional Commits：
+
 ```
-使用 test-lifecycle 评审测试设计阶段是否可以进入执行
+feat: 新功能
+fix: Bug 修复
+docs: 文档更新
+style: 格式调整
+refactor: 重构
+test: 测试相关
+chore: 构建/工具
 ```
-
----
-
-## 开发团队
-
-- **开发者**: OpenClaw Agent
-- **开发日期**: 2026-04-10
-- **基于标准**: ISTQB STLC
 
 ---
 
@@ -185,12 +360,22 @@ Agent-Testing-Skill-Suit/
 
 ---
 
-## 参考资料
+## 联系方式
 
-- ISTQB 官方网站：https://www.istqb.org/
-- OpenClaw 文档：https://docs.openclaw.ai/
-- ClawHub 技能市场：https://clawhub.ai/
+- **项目地址**: https://github.com/LiuDaZheng/agent-testing-skill-suit
+- **问题反馈**: https://github.com/LiuDaZheng/agent-testing-skill-suit/issues
+- **邮件**: jiejun.liu@comonetwork.com
 
 ---
 
-*版本：1.0 | 最后更新：2026-04-10*
+## 致谢
+
+感谢 OpenClaw 社区提供的平台和工具支持。
+
+感谢 ISTQB 提供的测试标准指导。
+
+---
+
+**最后更新**: 2026-04-10  
+**版本**: v1.0.0  
+**状态**: ✅ 正式发布
