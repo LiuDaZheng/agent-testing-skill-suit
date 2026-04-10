@@ -2,7 +2,7 @@
 name: test-story-parser
 description: User Story 解析器 - 将自然语言需求转换为结构化测试输入
 metadata:
-  {"openclaw":{"requires":{"bins":[   "wc"]},   "os":["darwin","linux"   ]}}
+  {"openclaw":{"requires":{"bins":[    "wc"]},    "os":["darwin","linux"    ]}}
 ---
 
 # User Story 解析器 Skill
@@ -32,8 +32,8 @@ metadata:
 - "[角色] 需要 XXX 来 XXX"
 
 ### 英文常见变体
-- "As a [   role],    I want [goal   ], so that [benefit]"
-- "As a [   role],    I need [goal   ], in order to [benefit]"
+- "As a [    role],     I want [goal    ], so that [benefit]"
+- "As a [    role],     I need [goal    ], in order to [benefit]"
 
 ## 解析规则
 

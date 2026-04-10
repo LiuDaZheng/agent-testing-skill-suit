@@ -2,7 +2,7 @@
 name: test-cross-platform
 description: 跨平台测试适配 - Web/H5/小程序/App 多平台测试支持
 metadata:
-  {"openclaw":{"requires":{"bins":[   "wc"]},   "os":["darwin","linux"   ]}}
+  {"openclaw":{"requires":{"bins":[    "wc"]},    "os":["darwin","linux"    ]}}
 ---
 
 # 跨平台测试适配 Skill
@@ -88,7 +88,7 @@ import platform
 def run_command(command):
     """跨平台命令执行"""
     system = platform.system()
-    shell_cmd = [   'cmd',    '/c', command   ] if system == 'Windows' else [   'sh',    '-c', command   ]
+    shell_cmd = [    'cmd',     '/c', command    ] if system == 'Windows' else [    'sh',     '-c', command    ]
     result = subprocess.run(shell_cmd, capture_output=True, text=True)
     return result.returncode == 0, result.stdout, result.stderr
 ```
@@ -273,7 +273,7 @@ class PlatformFactory:
 
 # 使用示例
 def test_login(driver_factory):
-    for platform in [   'web',    'ios', 'android'   ]:
+    for platform in [    'web',     'ios', 'android'    ]:
         driver = driver_factory.get(platform)
         page = PlatformFactory.create_page(driver, platform, 'login')
         page.input_text('phone', '13800138000')
@@ -300,7 +300,7 @@ class PlatformDetector:
 
     @staticmethod
     def is_ci() -> bool:
-        ci_vars = [   'CI',    'GITHUB_ACTIONS', 'GITLAB_CI', 'JENKINS_URL'   ]
+        ci_vars = [    'CI',     'GITHUB_ACTIONS', 'GITLAB_CI', 'JENKINS_URL'    ]
         return any(os.getenv(var) for var in ci_vars)
 ```
 
