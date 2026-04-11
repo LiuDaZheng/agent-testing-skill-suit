@@ -2,7 +2,7 @@
 name: test-ci-cd-config
 description: CI/CD 测试流水线配置 - GitHub Actions/GitLab CI/Jenkins
 metadata:
-  {"openclaw":{"requires":{"bins":[      "wc"]},      "os":["darwin","linux"      ]}}
+  {"openclaw":{"requires":{"bins":[       "wc"]},       "os":["darwin","linux"       ]}}
 ---
 
 # CI/CD 测试流水线配置 Skill
@@ -27,7 +27,7 @@ name: Test Pipeline
 
 on:
   push:
-    branches: [      main,       develop      ]
+    branches: [       main,        develop       ]
   pull_request:
     branches: [main]
   schedule:
