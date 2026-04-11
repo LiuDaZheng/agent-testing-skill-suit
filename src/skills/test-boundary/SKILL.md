@@ -49,7 +49,7 @@ BVA 通过测试以下值来识别边界处的缺陷：
 
 ### 步骤 2: 确定边界值
 
-对于范围 [min, max]，测试以下值：
+对于范围 [       min,        max       ]，测试以下值：
 ```
 边界值集合 = {min-1, min, min+1, max-1, max, max+1}
 ```
@@ -106,9 +106,9 @@ test_cases:
 **测试用例**：
 ```python
 def test_score_boundaries():
-    boundaries = [-1, 0, 1, 99, 100, 101]
-    expected = ['Invalid', 'Valid', 'Valid', 'Valid', 'Valid', 'Invalid']
-    
+    boundaries = [       -1,        0, 1, 99, 100, 101       ]
+    expected = [       'Invalid',        'Valid', 'Valid', 'Valid', 'Valid', 'Invalid'       ]
+
     for score, exp in zip(boundaries, expected):
         result = validate_score(score)
         assert result == exp, f"Failed at {score}"
@@ -154,7 +154,7 @@ describe('Password Length BVA', () => {
 public void testQuantityDiscountBoundaries() {
     int[] boundaries = {0, 1, 10, 11, 50, 51, 100, 101};
     String[] expectedDiscount = {"N/A", "0%", "0%", "10%", "10%", "20%", "20%", "30%"};
-    
+
     for (int i = 0; i < boundaries.length; i++) {
         String actual = getDiscount(boundaries[i]);
         assertEquals(expectedDiscount[i], actual);
@@ -188,7 +188,7 @@ def test_appointment_date_boundaries():
         (today + timedelta(days=30), True),
         (today + timedelta(days=31), False),
     ]
-    
+
     for date, expected in test_dates:
         result = can_appoint(date)
         assert result == expected, f"Failed at {date}"
@@ -246,3 +246,4 @@ def test_appointment_date_boundaries():
 ---
 
 **版本**: 1.0 | **最后更新**: 2026-04-10 | **位置**: `~/.openclaw/workspace-skilldev/Agent-Testing-Skill-Suit/src/skills/test-boundary/`
+

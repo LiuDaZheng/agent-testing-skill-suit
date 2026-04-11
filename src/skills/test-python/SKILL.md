@@ -71,7 +71,7 @@ def func(x):
 class TestFunc(unittest.TestCase):
     def test_answer(self):
         self.assertEqual(func(3), 4)
-    
+
     def test_greater(self):
         self.assertGreater(func(4), 4)
 
@@ -178,16 +178,16 @@ def multiply(a, b):
 class TestMultiply(unittest.TestCase):
     def test_multiply_positive(self):
         self.assertEqual(multiply(2, 3), 6)
-    
+
     def test_multiply_negative(self):
         self.assertEqual(multiply(-2, -3), 6)
-    
+
     def test_multiply_zero(self):
         self.assertEqual(multiply(5, 0), 0)
-    
+
     def setUp(self):
         print("Setting up test")
-    
+
     def tearDown(self):
         print("Tearing down test")
 
@@ -370,3 +370,4 @@ project/
 - test-runner - 统一测试执行器
 - test-js - JavaScript/TypeScript 测试
 - test-api - API 测试
+

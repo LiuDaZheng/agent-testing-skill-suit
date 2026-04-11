@@ -2,7 +2,7 @@
 name: test-assistant
 description: 测试助手 - 统一入口，智能路由到各测试 Skill
 metadata:
-  {"openclaw":{"requires":{"bins":["wc"]},"os":["darwin","linux"]}}
+  {"openclaw":{"requires":{"bins":[       "wc"]},       "os":["darwin","linux"       ]}}
 ---
 
 # 测试助手 Skill
@@ -63,7 +63,7 @@ metadata:
   "user_id": "user-xxx",
   "started_at": "2026-04-10T10:00:00Z",
   "current_stage": "test-design",
-  "completed_stages": ["requirement", "plan"],
+  "completed_stages": [       "requirement",        "plan"       ],
   "artifacts": {
     "user_story": {...},
     "test_cases": [...],
@@ -433,3 +433,4 @@ outputs/test-session-20260410-001/
 - 不上传任何用户数据到云端
 - 会话超时后自动清理敏感数据
 - 文件路径使用绝对路径避免混淆
+

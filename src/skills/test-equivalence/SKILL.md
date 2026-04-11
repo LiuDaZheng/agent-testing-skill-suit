@@ -68,7 +68,7 @@ ECP (等价类划分)          BVA (边界值分析)
 为每个输入条件划分有效/无效类：
 ```
 年龄:
-  有效类：[18, 60]
+  有效类：[       18,        60       ]
   无效类 1: (-∞, 17]
   无效类 2: [61, +∞)
   无效类 3: 非整数
@@ -89,7 +89,7 @@ ECP (等价类划分)          BVA (边界值分析)
 从每个等价类选择 1-2 个代表值：
 ```
 年龄:
-  有效类 [18, 60] → 选 25, 40
+  有效类 [       18,        60       ] → 选 25, 40
   无效类 (-∞, 17] → 选 17, 5
   无效类 [61, +∞) → 选 61, 100
   无效类 (非整数) → 选 "abc", 18.5
@@ -190,7 +190,7 @@ describe('Login ECP', () => {
   it('valid username + valid password', () => {
     expect(login('user1', 'correctPass')).toBe('success');
   });
-  
+
   // 无效类 - 用户名
   it('unregistered username', () => {
     expect(login('unknown', 'anyPass')).toBe('error: user not found');
@@ -198,7 +198,7 @@ describe('Login ECP', () => {
   it('empty username', () => {
     expect(login('', 'correctPass')).toBe('error: username required');
   });
-  
+
   // 无效类 - 密码
   it('wrong password', () => {
     expect(login('user1', 'wrongPass')).toBe('error: invalid password');
@@ -206,7 +206,7 @@ describe('Login ECP', () => {
   it('empty password', () => {
     expect(login('user1', '')).toBe('error: password required');
   });
-  
+
   // 组合无效类
   it('empty username + empty password', () => {
     expect(login('', '')).toBe('error: credentials required');
@@ -242,16 +242,16 @@ public void testFileUploadECP() {
     // 有效类
     uploadAndAssert("image.jpg", 500*KB, SUCCESS);
     uploadAndAssert("doc.pdf", 5*MB, SUCCESS);
-    
+
     // 无效类 - 类型
     uploadAndAssert("virus.exe", 100*KB, ERROR_TYPE);
     uploadAndAssert("script.sh", 50*KB, ERROR_TYPE);
-    
+
     // 无效类 - 大小
     uploadAndAssert("empty.jpg", 0, ERROR_SIZE);
     uploadAndAssert("tiny.jpg", 500, ERROR_SIZE);  // <1KB
     uploadAndAssert("huge.jpg", 15*MB, ERROR_SIZE); // >10MB
-    
+
     // 无效类 - 存在性
     uploadAndAssert(null, 0, ERROR_FILE_NOT_FOUND);
 }
@@ -300,7 +300,7 @@ test_matrix = [
 **等价类**：
 ```
 quantity (数量):
-  有效类：[1, 999]
+  有效类：[       1,        999       ]
   无效类 1：≤0
   无效类 2：≥1000
   无效类 3：非整数
@@ -324,19 +324,19 @@ def test_create_order_ecp():
         address={'street': '123 Main St', 'city': 'NYC'}
     )
     assert response.status == 201
-    
+
     # 无效类 - quantity
     response = create_order(quantity=0, ...)
     assert response.status == 400
     assert 'quantity' in response.error
-    
+
     response = create_order(quantity=1000, ...)
     assert response.status == 400
-    
+
     # 无效类 - payment_method
     response = create_order(payment_method='crypto', ...)
     assert response.status == 400
-    
+
     # 无效类 - address
     response = create_order(address={'city': 'NYC'})  # 缺少 street
     assert response.status == 400
@@ -349,7 +349,7 @@ def test_create_order_ecp():
 等价类必须来源于需求规格：
 ```
 需求：年龄 18-60 岁
-→ 有效类：[18, 60]
+→ 有效类：[       18,        60       ]
 → 无效类：(-∞, 17], [61, +∞)
 ```
 
@@ -414,3 +414,4 @@ ECP 选代表值，BVA 测边界：
 ---
 
 **版本**: 1.0 | **最后更新**: 2026-04-10 | **位置**: `~/.openclaw/workspace-skilldev/Agent-Testing-Skill-Suit/src/skills/test-equivalence/`
+

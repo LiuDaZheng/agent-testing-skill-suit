@@ -38,7 +38,7 @@ describe('sum function', () => {
   test('adds 1 + 2 to equal 3', () => {
     expect(sum(1, 2)).toBe(3)
   })
-  
+
   test('handles negative numbers', () => {
     expect(sum(-1, -1)).toBe(-2)
   })
@@ -225,7 +225,7 @@ export default defineConfig({
     environment: 'node',
     coverage: {
       provider: 'v8',
-      reporter: ['text', 'json', 'html'],
+      reporter: [       'text',        'json', 'html'       ],
     },
   },
 })
@@ -255,7 +255,7 @@ export default defineConfig({
   projects: [
     { name: 'chromium', use: { browserName: 'chromium' } },
   ],
-  reporter: [['html'], ['list']],
+  reporter: [       ['html'],        ['list'       ]],
 });
 ```
 
@@ -295,3 +295,4 @@ export default defineConfig({
 - test-runner - 统一测试执行器
 - test-e2e - E2E 测试（含 Cypress）
 - test-api - API 测试
+

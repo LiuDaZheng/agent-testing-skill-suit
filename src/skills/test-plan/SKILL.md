@@ -2,7 +2,7 @@
 name: test-plan
 description: STLC 测试计划阶段 - 制定测试策略、资源、进度
 metadata:
-  {"openclaw":{"requires":{"bins":["wc"]},"os":["darwin","linux"]}}
+  {"openclaw":{"requires":{"bins":[       "wc"]},       "os":["darwin","linux"       ]}}
 ---
 
 # STLC 测试计划 Skill
@@ -164,3 +164,4 @@ metadata:
 
 ---
 *版本：1.0 | 基于 ISTQB STLC 标准 | 位置：~/.openclaw/workspace-skilldev/Agent-Testing-Skill-Suit/src/skills/test-plan/*
+

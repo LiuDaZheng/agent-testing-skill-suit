@@ -181,19 +181,19 @@ T - Time (时间): 产品如何随时间变化
   会话 ID: ET-MOBILE-001
   应用：旅行预订 App
   时间：60 分钟
-  设备：[iPhone 14, Android Pixel 7]
+  设备：[       iPhone 14,        Android Pixel 7       ]
 
 章程:
   - 章程 1:
       探索：搜索和预订酒店
       使用：不同网络条件 (WiFi/4G/弱网)
       发现：加载问题和超时处理
-      
+
   - 章程 2:
       探索：支付流程
       使用：中断测试 (来电、切换应用)
       发现：状态恢复和数据丢失
-      
+
   - 章程 3:
       探索：离线功能
       使用：飞行模式
@@ -229,7 +229,7 @@ test_ideas = [
     "过期 token 访问",
     "无效 token 格式",
     "不同用户 token 混用",
-    
+
     # 输入验证
     "超长字符串输入",
     "特殊字符注入",
@@ -237,12 +237,12 @@ test_ideas = [
     "XSS  Payload",
     "负数 ID",
     "超大页码",
-    
+
     # 边界测试
     "创建 0 个资源",
     "创建最大允许数量",
     "批量操作边界",
-    
+
     # 并发测试
     "同时创建相同资源",
     "同时修改同一资源",
@@ -254,7 +254,7 @@ class ExploratorySession:
     def __init__(self):
         self.findings = []
         self.start_time = datetime.now()
-    
+
     def log_finding(self, idea, result, severity):
         self.findings.append({
             'idea': idea,
@@ -262,7 +262,7 @@ class ExploratorySession:
             'severity': severity,
             'timestamp': datetime.now()
         })
-    
+
     def report(self):
         print(f"探索测试报告 - {len(self.findings)} 个发现")
         for f in self.findings:
@@ -429,3 +429,4 @@ class ExploratorySession:
 ---
 
 *基于 ISTQB CTFL/CTFL-AT syllabus 探索式测试技术 | 版本 1.0 | 2026-04-10*
+

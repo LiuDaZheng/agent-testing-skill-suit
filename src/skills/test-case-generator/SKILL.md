@@ -2,7 +2,7 @@
 name: test-case-generator
 description: 测试用例生成器 - 将验收标准转换为可执行的测试用例
 metadata:
-  {"openclaw":{"requires":{"bins":["wc"]},"os":["darwin","linux"]}}
+  {"openclaw":{"requires":{"bins":[       "wc"]},       "os":["darwin","linux"       ]}}
 ---
 
 # 测试用例生成器 Skill
@@ -452,7 +452,7 @@ AC3: 支付失败显示错误提示
 
 ## 与上下游 Skill 的接口
 
-**上游**: test-story-parser → User Story + AC  
+**上游**: test-story-parser → User Story + AC
 **下游**: test-execute → 测试用例 + 测试数据
 
 ---
@@ -469,3 +469,4 @@ AC3: 支付失败显示错误提示
 ---
 
 *版本：1.0 | 基于 ISTQB 测试设计标准*
+
