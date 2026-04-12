@@ -2,7 +2,7 @@
 name: test-case-generator
 description: 测试用例生成器 - 将验收标准转换为可执行的测试用例
 metadata:
-  {"openclaw":{"requires":{"bins":[   "wc"]},   "os":["darwin","linux"   ]}}
+  {"openclaw":{"requires":{"bins":["wc"]},"os":["darwin","linux"]}}
 ---
 
 # 测试用例生成器 Skill
@@ -467,7 +467,7 @@ AC3: 支付失败显示错误提示
 ```json
 {
   "user_story": {"role": "...", "goal": "...", "benefit": "..."},
-  "acceptance_criteria": [   "AC1",    "AC2", ...   ],
+  "acceptance_criteria": ["AC1", "AC2", ...],
   "confidence": 100
 }
 ```
