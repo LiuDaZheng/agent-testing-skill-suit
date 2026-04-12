@@ -170,7 +170,7 @@ pytest tests/api -v --cov=src --html=reports/api-report.html
 ## 🥈 备选方案：httpie + pytest (4.2/5)
 - ✅ 命令行友好，适合快速测试
 
-## 下一步行动
+### API 测试：快速开始
 1. 安装 pytest 和 requests
 2. 创建 tests/api 目录
 3. 编写第一个 API 测试
@@ -247,7 +247,7 @@ npx playwright test
 - ✅ 开发者体验优秀
 - ❌ 仅支持 Chromium（付费支持 Firefox/Safari）
 
-## 下一步行动
+### E2E 测试：快速开始
 1. 安装 Playwright
 2. 运行初始化向导
 3. 编写第一个 E2E 测试
@@ -331,7 +331,7 @@ export default function() {
 2. CI 集成更完善
 3. 指标和阈值更丰富
 
-## 下一步行动
+### 性能测试：快速开始
 1. 安装 k6
 2. 编写第一个负载测试脚本
 3. 配置阈值和指标
@@ -394,7 +394,7 @@ driver.find_element(accessibility_id="login").click()
 - ✅ 速度快
 - ❌ 仅支持 React Native
 
-## 下一步行动
+### 移动端测试：快速开始
 1. 安装 Appium Server
 2. 配置 iOS/Android 模拟器
 3. 编写第一个移动端测试
