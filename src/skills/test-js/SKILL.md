@@ -225,7 +225,7 @@ export default defineConfig({
     environment: 'node',
     coverage: {
       provider: 'v8',
-      reporter: [  'text',   'json', 'html'  ],
+      reporter: ['text', 'json', 'html'],
     },
   },
 })
@@ -255,7 +255,7 @@ export default defineConfig({
   projects: [
     { name: 'chromium', use: { browserName: 'chromium' } },
   ],
-  reporter: [  ['html'],   ['list'  ]],
+  reporter: [['html'], ['list']],
 });
 ```
 
