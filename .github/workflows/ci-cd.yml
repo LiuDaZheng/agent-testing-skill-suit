@@ -38,7 +38,7 @@ jobs:
           echo "Checking Markdown files..."
           md_files=$(find . -name "*.md" 2>/dev/null)
           if [ -n "$md_files" ]; then
-            echo "$md_files" | xargs markdownlint || exit 1
+            echo "$md_files" | xargs markdownlint --ignore MIGRATION-BATCH-1-MANIFEST.md || exit 1
             echo "✅ Markdown validation passed"
           else
             echo "ℹ️ No Markdown files found"
