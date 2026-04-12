@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../drupal-knowledge-base"
+		},
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../.hermes"
+		},
+		{
+			"path": "../lbs-ar-miniapp-research"
+		},
+		{
+			"path": "../agent-collab-dev-project"
+		},
+		{
+			"path": "../../workspace-main/doctor-agent-solution"
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/.DS_Store": false,
+			"**/.git": false
+		}
+	}
+}
